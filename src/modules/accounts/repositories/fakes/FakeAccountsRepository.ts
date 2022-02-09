@@ -19,7 +19,7 @@ class FakeAccountsRepository implements IAccountsRepository {
   public async create(data: IAccountDTO): Promise<Account> {
     const account = new Account();
 
-    Object.assign(account, { id: uuidv4() }, data);
+    Object.assign(account, { id: uuidv4(), balance: 0 }, data);
 
     this.accounts.push(account);
     return account;

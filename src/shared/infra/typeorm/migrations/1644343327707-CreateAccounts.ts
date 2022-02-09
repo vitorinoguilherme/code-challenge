@@ -24,7 +24,7 @@ export default class CreateAccounts1644343327707 implements MigrationInterface {
           {
             name: 'balance',
             type: 'numeric',
-            default: '0.00',
+            default: 0,
           },
           {
             name: 'created_at',

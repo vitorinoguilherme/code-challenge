@@ -1,4 +1,5 @@
 import FakeAccountsRepository from '@modules/accounts/repositories/fakes/FakeAccountsRepository';
+import AppError from '@shared/errors/AppError';
 
 import CreateAccountService from './CreateAccountService';
 
@@ -33,6 +34,6 @@ describe('CreateAccount', () => {
         name: 'John',
         CPF: '048.184.750-25',
       }),
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

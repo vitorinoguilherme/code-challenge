@@ -3,6 +3,7 @@ import { injectable, inject } from 'tsyringe';
 import IAccountsRepository from '@modules/accounts/repositories/IAccountsRepository';
 
 import Account from '@modules/accounts/infra/typeorm/entities/Account';
+import AppError from '@shared/errors/AppError';
 
 interface IRequest {
   name: string;
@@ -20,7 +21,7 @@ class CreateAccountService {
     const checkAccountExists = await this.accountsRepository.findByCPF(CPF);
 
     if (checkAccountExists) {
-      throw new Error('CPF already used.');
+      throw new AppError('CPF already used.');
     }
 
     const account = await this.accountsRepository.create({
